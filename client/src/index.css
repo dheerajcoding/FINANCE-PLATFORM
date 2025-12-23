@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 px-4 md:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-xs tracking-[0.4em] uppercase text-accent mb-4 inline-block;
+  }
+
+  .glass-card {
+    @apply bg-white/85 backdrop-blur-xl border border-white/40 rounded-[32px] shadow-2xl;
+  }
+
+  .stat-chip {
+    @apply px-4 py-2 bg-white/15 border border-white/30 rounded-full text-xs uppercase tracking-[0.3em];
+  }
+
+  .gradient-border {
+    @apply border border-slate-100;
+    background-image: linear-gradient(145deg, rgba(30,58,138,0.08), rgba(220,38,38,0.05));
+  }
+
+  .bg-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgba(30,58,138,0.08) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all;
+  }
+
+  .form-textarea {
+    @apply form-input resize-none;
+  }
+}

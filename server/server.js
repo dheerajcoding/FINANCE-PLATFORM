@@ -2,10 +2,23 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
+const fs = require('fs');
 const contactRoutes = require('./routes/contact');
 
-// Load environment variables
-dotenv.config();
+// Load environment variables.
+// This project keeps .env under /server for local dev, but many hosts set env vars
+// or place .env at repo root. Load both locations when present.
+const envCandidates = [
+  path.join(__dirname, '.env'),
+  path.join(__dirname, '..', '.env'),
+];
+
+for (const envPath of envCandidates) {
+  if (fs.existsSync(envPath)) {
+    dotenv.config({ path: envPath });
+  }
+}
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -33,6 +46,19 @@ app.use('/api/contact', contactRoutes);
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
 });
+
+// Serve built client (Vite) when available (typical production deploy)
+const clientDistPath = path.join(__dirname, '..', 'client', 'dist');
+const clientIndexHtml = path.join(clientDistPath, 'index.html');
+
+if (fs.existsSync(clientDistPath) && fs.existsSync(clientIndexHtml)) {
+  app.use(express.static(clientDistPath));
+
+  // SPA fallback (but never for API routes)
+  app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(clientIndexHtml);
+  });
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {

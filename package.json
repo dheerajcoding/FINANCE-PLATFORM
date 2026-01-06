@@ -6,7 +6,7 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "nodemon server/server.js",
     "dev:client": "cd client && vite",
-    "build": "cd client && vite build",
+    "build": "npm install --prefix client --include=dev && npm run build --prefix client",
     "start": "node server.js"
   },
   "keywords": ["mern", "financial", "business"],

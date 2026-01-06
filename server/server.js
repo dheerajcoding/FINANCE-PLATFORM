@@ -6,19 +6,8 @@ const path = require('path');
 const fs = require('fs');
 const contactRoutes = require('./routes/contact');
 
-// Load environment variables.
-// This project keeps .env under /server for local dev, but many hosts set env vars
-// or place .env at repo root. Load both locations when present.
-const envCandidates = [
-  path.join(__dirname, '.env'),
-  path.join(__dirname, '..', '.env'),
-];
-
-for (const envPath of envCandidates) {
-  if (fs.existsSync(envPath)) {
-    dotenv.config({ path: envPath });
-  }
-}
+// Load environment variables
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;

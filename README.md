@@ -1,6 +1,6 @@
 # ARS Financial Enterprises Website
 
-A professional business website for **ARS Financial Enterprises** built with the MERN stack (MongoDB, Express, React, Node.js).
+A professional business website for **ARS Financial Enterprises** built with Express, React, and Node.js.
 
 **Tagline:** Min Fees · High Quality · Quick Service
 
@@ -10,7 +10,6 @@ A professional business website for **ARS Financial Enterprises** built with the
 - **Responsive Layout** - Mobile-first design that works on all devices
 - **Contact Form** - Fully functional inquiry form with validation
 - **Email Notifications** - Automatic email alerts for new inquiries
-- **MongoDB Storage** - All inquiries are saved to the database
 - **Professional UI** - Clean design with Tailwind CSS
 
 ## 📋 Services Offered
@@ -37,8 +36,6 @@ A professional business website for **ARS Financial Enterprises** built with the
 ### Backend
 - **Node.js** - JavaScript runtime
 - **Express** - Web application framework
-- **MongoDB** - NoSQL database
-- **Mongoose** - MongoDB object modeling
 - **EmailJS** - Email service for notifications and auto-replies
 - **Express Validator** - Server-side validation
 
@@ -66,8 +63,6 @@ ARSFNC/
 │   └── postcss.config.cjs
 │
 ├── server/                # Express backend
-│   ├── models/
-│   │   └── Inquiry.js    # MongoDB schema
 │   ├── routes/
 │   │   └── contact.js    # API routes
 │   ├── utils/
@@ -85,7 +80,6 @@ ARSFNC/
 ### Prerequisites
 
 - **Node.js** (v16 or higher) - [Download](https://nodejs.org/)
-- **MongoDB** - [Download](https://www.mongodb.com/try/download/community) or use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (cloud)
 - **EmailJS Account** - Free account at [EmailJS.com](https://www.emailjs.com/) for sending emails
 
 ### Step 1: Clone or Download
@@ -124,10 +118,6 @@ copy .env.example .env
 Edit the `.env` file with your configuration:
 
 ```env
-# MongoDB Configuration
-MONGO_URI=mongodb://localhost:27017/ars-financial
-# For MongoDB Atlas: mongodb+srv://username:password@cluster.mongodb.net/ars-financial
-
 # EmailJS Configuration
 EMAILJS_SERVICE_ID=your_service_id
 EMAILJS_TEMPLATE_ID=your_template_id
@@ -164,21 +154,6 @@ Quick steps:
 - ✅ Instant auto-reply to customers
 - ✅ 200 free emails per month
 - ✅ Easy template management
-
-#### 🗄️ MongoDB Setup Options
-
-**Option 1: Local MongoDB**
-- Install MongoDB Community Server
-- MongoDB will run on `mongodb://localhost:27017` by default
-- Use `MONGO_URI=mongodb://localhost:27017/ars-financial`
-
-**Option 2: MongoDB Atlas (Cloud - Recommended)**
-- Create a free account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- Create a new cluster
-- Click "Connect" → "Connect your application"
-- Copy the connection string
-- Replace `<password>` with your database user password
-- Use this as your `MONGO_URI`
 
 ### Step 4: Run the Application
 

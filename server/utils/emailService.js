@@ -38,34 +38,4 @@ const sendInquiryEmail = async (inquiryData) => {
   }
 };
 
-// Send auto-reply email to customer
-const sendAutoReplyEmail = async (inquiryData) => {
-  try {
-    const templateParams = {
-      to_email: inquiryData.email,
-      customer_name: inquiryData.fullName,
-      service_requested: inquiryData.service,
-      from_name: process.env.FROM_NAME || 'ARS Financial Enterprises',
-      contact_phone: '+91 9818774800',
-      contact_email: process.env.TO_EMAIL,
-    };
-
-    const response = await emailjs.send(
-      process.env.EMAILJS_SERVICE_ID,
-      process.env.EMAILJS_AUTO_REPLY_TEMPLATE_ID,
-      templateParams,
-      {
-        publicKey: process.env.EMAILJS_PUBLIC_KEY,
-        privateKey: process.env.EMAILJS_PRIVATE_KEY,
-      }
-    );
-
-    console.log('✅ Auto-reply email sent successfully:', response.status, response.text);
-    return { success: true, status: response.status };
-  } catch (error) {
-    console.error('❌ Error sending auto-reply email:', error);
-    throw error;
-  }
-};
-
-module.exports = { sendInquiryEmail, sendAutoReplyEmail };
+module.exports = { sendInquiryEmail };

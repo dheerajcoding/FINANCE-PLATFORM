@@ -188,7 +188,6 @@ const Contact = () => {
                     value={formData.fullName}
                     onChange={handleChange}
                     className="form-input border-slate-300"
-                    placeholder="John Doe"
                     autoComplete="name"
                     required
                   />
@@ -205,7 +204,6 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="form-input border-slate-300"
-                    placeholder="john@example.com"
                     autoComplete="email"
                     required
                   />
@@ -224,7 +222,6 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="form-input border-slate-300"
-                    placeholder="+91 9818774800"
                     inputMode="tel"
                     autoComplete="tel"
                     required

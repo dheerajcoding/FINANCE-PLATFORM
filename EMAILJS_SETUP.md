@@ -1,6 +1,6 @@
 # EmailJS Setup Guide for ARS Financial Enterprises
 
-This guide will help you set up EmailJS for sending inquiry notifications and auto-replies.
+This guide will help you set up EmailJS for sending inquiry notifications.
 
 ## Step 1: Create EmailJS Account
 
@@ -19,9 +19,9 @@ This guide will help you set up EmailJS for sending inquiry notifications and au
 4. Follow the connection steps
 5. Copy the **Service ID** (e.g., `service_abc123`)
 
-## Step 3: Create Email Templates
+## Step 3: Create Email Template
 
-### Template 1: Inquiry Notification (to Business Owner)
+### Template: Inquiry Notification (to Business Owner)
 
 1. Go to **Email Templates** → **Create New Template**
 2. **Template Name:** Inquiry Notification
@@ -65,36 +65,7 @@ This email was automatically generated from the ARS Financial Enterprises websit
 
 4. Click **Save** and copy the **Template ID** (e.g., `template_xyz456`)
 
-### Template 2: Auto-Reply (to Customer)
-
-1. Create another template: **Auto Reply to Customer**
-2. **Template Content:**
-
-```
-Subject: Thank you for contacting ARS Financial Enterprises
-
-Dear {{customer_name}},
-
-Thank you for reaching out to ARS Financial Enterprises!
-
-We have received your inquiry regarding: {{service_requested}}
-
-Our team will review your request and get back to you within 24 hours. 
-
-In the meantime, if you need immediate assistance, please feel free to contact us:
-📞 Phone: {{contact_phone}}
-📧 Email: {{contact_email}}
-
-We look forward to serving you!
-
-Best regards,
-{{from_name}}
-
----
-Min Fees · High Quality · Quick Service
-```
-
-3. Click **Save** and copy the **Template ID** (e.g., `template_def789`)
+EmailJS can handle customer auto-replies on the EmailJS side (for example, via your EmailJS template/service setup) so the website backend does not need a separate auto-reply template.
 
 ## Step 4: Get Your API Keys
 
@@ -114,7 +85,6 @@ MONGO_URI=mongodb://localhost:27017/ars-financial
 # EmailJS Configuration
 EMAILJS_SERVICE_ID=service_abc123
 EMAILJS_TEMPLATE_ID=template_xyz456
-EMAILJS_AUTO_REPLY_TEMPLATE_ID=template_def789
 EMAILJS_PUBLIC_KEY=user_abcdefghijk
 EMAILJS_PRIVATE_KEY=your_private_key_here
 
@@ -155,13 +125,11 @@ npm run dev
 4. Fill out the contact form and submit
 5. Check:
    - Your inbox (anil.choudhary6@yahoo.co.in) for the inquiry notification
-   - Customer's email for the auto-reply
 
 ## EmailJS Features
 
-✅ **Two-Way Communication:**
+✅ **Inquiry Notifications:**
 - Business owner receives inquiry notification
-- Customer receives instant auto-reply confirmation
 
 ✅ **Free Tier Limits:**
 - 200 emails per month (free)

@@ -18,9 +18,19 @@ import auditPrimary from './images/image19.jpg';
 import loanPrimary from './images/image20.avif';
 import loanAccent from './images/image20.jpg';
 import loanAccentSecondary from './images/image21.png';
+import msmePrimary from './images/image5.jpg';
 
 const Services = () => {
   const services = [
+    {
+      title: 'Loan Facilities & Professional Services',
+      description: 'Structured finance support covering working capital, term loans, and documentation for faster, cleaner processing.',
+      supporting: 'Types: Personal · Home · LAP (Loan Against Property) · Business · Working Capital · Term Loan',
+      tag: 'Capital Desk',
+      background: loanPrimary,
+      gallery: [loanAccent, loanAccentSecondary],
+      featured: true,
+    },
     {
       title: 'GST Registration / GST Returns',
       description: 'Complete GST registration lifecycle with proactive filing reminders and intelligence dashboards.',
@@ -47,6 +57,12 @@ const Services = () => {
       tag: 'Business Setup',
       background: firmPrimary,
       gallery: [firmAccent],
+    },
+    {
+      title: 'MSME (Udyam Certificate)',
+      description: 'Udyam registration support with accurate classification, document checklist, and certificate guidance for eligible businesses.',
+      tag: 'Business Setup',
+      background: msmePrimary,
     },
     {
       title: 'Digital Signature Certificate (DSC)',
@@ -82,13 +98,6 @@ const Services = () => {
       tag: 'Governance',
       background: auditPrimary,
     },
-    {
-      title: 'Loan Facilities & Professional Services',
-      description: 'Structured finance desks covering working capital, term loans, and investor documentation.',
-      tag: 'Capital Desk',
-      background: loanPrimary,
-      gallery: [loanAccent, loanAccentSecondary],
-    },
   ];
 
   return (
@@ -109,7 +118,9 @@ const Services = () => {
           {services.map((service, index) => (
             <article
               key={service.title}
-              className="relative rounded-2xl overflow-hidden shadow-xl group border border-white/40"
+              className={`relative rounded-2xl overflow-hidden shadow-xl group border border-white/40 ${
+                service.featured ? 'md:col-span-2 lg:col-span-2' : ''
+              }`}
               style={{
                 backgroundImage: `linear-gradient(145deg, rgba(5,20,58,0.92), rgba(30,58,138,0.72)), url(${service.background})`,
                 backgroundSize: 'cover',
@@ -129,6 +140,12 @@ const Services = () => {
 
                 <h3 className="text-2xl font-bold mb-4 leading-snug">{service.title}</h3>
                 <p className="text-white/80 leading-relaxed mb-6 flex-grow">{service.description}</p>
+
+                {service.supporting && (
+                  <p className="text-sm text-white/85 leading-relaxed mb-6">
+                    <span className="text-white/70">{service.supporting}</span>
+                  </p>
+                )}
 
                 <div className="flex items-center text-sm font-semibold tracking-wide">
                   <span className="mr-3">Full Scope Delivery</span>

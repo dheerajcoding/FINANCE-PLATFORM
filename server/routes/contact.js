@@ -1,6 +1,6 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
-const { sendInquiryEmail, sendAutoReplyEmail } = require('../utils/emailService');
+const { sendInquiryEmail } = require('../utils/emailService');
 
 const router = express.Router();
 
@@ -72,15 +72,11 @@ router.post('/', contactValidation, async (req, res) => {
       createdAt: new Date().toISOString(),
     };
 
-    // Send emails (inquiry notification and auto-reply)
+    // Send inquiry notification email
     try {
       // Send inquiry email to business owner
       await sendInquiryEmail(inquiryData);
       console.log('✅ Inquiry email notification sent');
-      
-      // Send auto-reply to customer
-      await sendAutoReplyEmail(inquiryData);
-      console.log('✅ Auto-reply email sent to customer');
     } catch (emailError) {
       console.error('⚠️ Email sending failed:', emailError);
     }

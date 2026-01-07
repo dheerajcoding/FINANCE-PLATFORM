@@ -6,6 +6,7 @@
   "description": "ARS Financial Enterprises Business Website (Frontend Only)",
   "scripts": {
     "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },

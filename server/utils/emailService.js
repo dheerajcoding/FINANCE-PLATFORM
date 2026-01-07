@@ -1,8 +1,32 @@
 const emailjs = require('@emailjs/nodejs');
 
+const readEnv = (key) => {
+  const value = process.env[key];
+  if (value === undefined || value === null) return '';
+  return String(value).trim();
+};
+
+const assertRequiredEnv = (keys) => {
+  const missing = keys.filter((k) => readEnv(k).length === 0);
+  if (missing.length > 0) {
+    const error = new Error(
+      `Missing required environment variables: ${missing.join(', ')}`
+    );
+    error.code = 'MISSING_ENV';
+    throw error;
+  }
+};
+
 // Send inquiry email to business owner
 const sendInquiryEmail = async (inquiryData) => {
   try {
+    assertRequiredEnv([
+      'EMAILJS_SERVICE_ID',
+      'EMAILJS_TEMPLATE_ID',
+      'EMAILJS_PUBLIC_KEY',
+      'EMAILJS_PRIVATE_KEY',
+    ]);
+
     const templateParams = {
       to_email: process.env.TO_EMAIL,
       cc_email: process.env.CC_EMAIL,
@@ -21,12 +45,12 @@ const sendInquiryEmail = async (inquiryData) => {
     };
 
     const response = await emailjs.send(
-      process.env.EMAILJS_SERVICE_ID,
-      process.env.EMAILJS_TEMPLATE_ID,
+      readEnv('EMAILJS_SERVICE_ID'),
+      readEnv('EMAILJS_TEMPLATE_ID'),
       templateParams,
       {
-        publicKey: process.env.EMAILJS_PUBLIC_KEY,
-        privateKey: process.env.EMAILJS_PRIVATE_KEY,
+        publicKey: readEnv('EMAILJS_PUBLIC_KEY'),
+        privateKey: readEnv('EMAILJS_PRIVATE_KEY'),
       }
     );
 

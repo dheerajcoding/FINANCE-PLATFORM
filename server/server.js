@@ -6,10 +6,33 @@ const fs = require('fs');
 const contactRoutes = require('./routes/contact');
 
 // Load environment variables
-dotenv.config();
+// Prefer `server/.env` (this folder) for local/dev. In production, hosting env vars take precedence.
+const serverDotenvPath = path.join(__dirname, '.env');
+if (fs.existsSync(serverDotenvPath)) {
+  dotenv.config({ path: serverDotenvPath });
+} else {
+  dotenv.config();
+}
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Log EmailJS configuration status (never log secret values)
+const requiredEmailJsVars = [
+  'EMAILJS_SERVICE_ID',
+  'EMAILJS_TEMPLATE_ID',
+  'EMAILJS_PUBLIC_KEY',
+  'EMAILJS_PRIVATE_KEY',
+];
+const missingEmailJsVars = requiredEmailJsVars.filter((key) => {
+  const value = process.env[key];
+  return !value || String(value).trim().length === 0;
+});
+if (missingEmailJsVars.length > 0) {
+  console.warn(
+    `⚠️  EmailJS env missing: ${missingEmailJsVars.join(', ')}. Email sending will fail until these are set.`
+  );
+}
 
 // Middleware
 app.use(cors());

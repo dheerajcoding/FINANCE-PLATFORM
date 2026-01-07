@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative pt-24 md:pt-32 section-padding text-white overflow-hidden"
+      className="relative pt-24 md:pt-32 pb-16 md:pb-24 px-4 text-white overflow-hidden"
     >
       <div className="absolute inset-0">
         <img src={heroBg} alt="Financial planning background" className="w-full h-full object-cover" />
@@ -35,21 +35,21 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <div>
             <p className="uppercase tracking-[0.4em] text-accent-light text-xs mb-6">
               Min Fees · High Quality · Quick Service
             </p>
-            <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] sm:leading-[1.06] mb-5 sm:mb-6">
               Compliance excellence crafted by
               <span className="text-accent-light block"> Anil Kumar Choudhary</span>
             </h2>
-            <p className="text-lg md:text-xl text-blue-100 mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-7 sm:mb-8 max-w-xl">
               Holistic GST, tax, and corporate compliance solutions delivered with the rigor of a
               boutique consultancy and the speed of a modern financial partner.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-10">
+            <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-10">
               {heroChips.map((chip) => (
                 <span key={chip} className="stat-chip">
                   {chip}
@@ -57,7 +57,7 @@ const Hero = () => {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button onClick={scrollToContact} className="btn-primary text-lg px-10 py-4">
                 Request a Call Back
               </button>
@@ -69,11 +69,11 @@ const Hero = () => {
               </button>
             </div>
 
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               {heroMetrics.map((metric) => (
-                <div key={metric.label} className="glass-card text-center">
+                <div key={metric.label} className="glass-card text-center p-6">
                   <div className="text-4xl font-bold text-accent-light">{metric.value}</div>
-                  <p className="mt-2 text-sm tracking-wide uppercase text-blue-100">{metric.label}</p>
+                  <p className="mt-2 text-sm tracking-wide uppercase text-slate-600">{metric.label}</p>
                 </div>
               ))}
             </div>
@@ -85,7 +85,7 @@ const Hero = () => {
                 <img
                   src={heroPortrait}
                   alt="Financial advisory session"
-                  className="w-full h-80 object-cover rounded-2xl shadow-2xl"
+                  className="w-full h-64 sm:h-72 md:h-80 object-cover rounded-2xl shadow-2xl"
                 />
                 <img
                   src={badgeImage}
@@ -94,10 +94,10 @@ const Hero = () => {
                 />
               </div>
 
-              <div className="mt-10 bg-gradient-to-r from-white/10 to-white/5 border border-white/20 rounded-2xl p-6">
-                <p className="text-sm uppercase tracking-[0.3em] text-blue-100 mb-2">Premium Desk</p>
-                <h3 className="text-2xl font-semibold mb-2">Dedicated Relationship Team</h3>
-                <p className="text-blue-100">
+              <div className="mt-10 bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-500 mb-2">Premium Desk</p>
+                <h3 className="text-2xl font-semibold text-slate-900 mb-2">Dedicated Relationship Team</h3>
+                <p className="text-slate-600">
                   Personal guidance on registrations, audits, and corporate finance within 24 hours of every inquiry.
                 </p>
               </div>

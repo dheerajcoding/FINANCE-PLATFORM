@@ -89,7 +89,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
             {/* Anil Choudhary */}
             <div className="group relative">
-              <div className="glass-card overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] hover:-translate-y-2 border-2 border-primary/10">
+              <div className="glass-card overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-2 border-primary/10">
                 <div className="relative h-[450px] overflow-hidden">
                   <img 
                     src={imagemain} 
@@ -116,7 +116,7 @@ const About = () => {
 
             {/* Archana Choudhary */}
             <div className="group relative">
-              <div className="glass-card overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] hover:-translate-y-2 border-2 border-primary/10">
+              <div className="glass-card overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-2 border-primary/10">
                 <div className="relative h-[450px] overflow-hidden">
                   <img 
                     src={imagemain2} 

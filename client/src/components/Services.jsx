@@ -111,7 +111,7 @@ const Services = () => {
               key={service.title}
               className="relative rounded-2xl overflow-hidden shadow-xl group border border-white/40"
               style={{
-                backgroundImage: `linear-gradient(145deg, rgba(5,20,58,0.9), rgba(30,58,138,0.4)), url(${service.background})`,
+                backgroundImage: `linear-gradient(145deg, rgba(5,20,58,0.92), rgba(30,58,138,0.72)), url(${service.background})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
@@ -150,6 +150,58 @@ const Services = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-16 gradient-border rounded-3xl p-8 md:p-10 bg-white">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            <div className="max-w-2xl">
+              <p className="section-subtitle">OUR DELIVERY PROCESS</p>
+              <h3 className="text-3xl md:text-4xl font-bold text-primary leading-tight">
+                Clear, concierge-led execution
+              </h3>
+              <p className="mt-3 text-gray-600">
+                A consistent workflow from discovery to filing to post-submission visibility—so you always know what’s happening and what’s next.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-3 gap-4 w-full">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6M7 20h10a2 2 0 002-2V6a2 2 0 00-2-2H9l-2 2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </span>
+                  <p className="text-sm font-bold text-primary">Discover</p>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">Requirements mapped, checklist shared, timelines confirmed.</p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                    </svg>
+                  </span>
+                  <p className="text-sm font-bold text-primary">Execute</p>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">Specialist pod completes filings with review checkpoints.</p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h10M4 18h16" />
+                    </svg>
+                  </span>
+                  <p className="text-sm font-bold text-primary">Report</p>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">Status updates, confirmations, and next-step guidance.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="text-center mt-16">

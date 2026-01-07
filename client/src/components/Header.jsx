@@ -25,7 +25,7 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 shadow-xl backdrop-blur-lg border-b border-slate-100'
-          : 'bg-white/40 backdrop-blur-md border-b border-white/20'
+          : 'bg-white/90 backdrop-blur-lg border-b border-slate-100'
       }`}
     >
       <div className="container-custom">
@@ -44,19 +44,19 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-accent transition-colors font-medium"
+              className="text-slate-700 hover:text-primary transition-colors font-medium"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-accent transition-colors font-medium"
+              className="text-slate-700 hover:text-primary transition-colors font-medium"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-accent transition-colors font-medium"
+              className="text-slate-700 hover:text-primary transition-colors font-medium"
             >
               About
             </button>
@@ -104,19 +104,19 @@ const Header = () => {
             <div className="flex flex-col space-y-4">
               <button
                 onClick={() => scrollToSection('home')}
-                className="text-gray-700 hover:text-accent transition-colors font-medium text-left"
+                className="text-slate-700 hover:text-primary transition-colors font-medium text-left"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-accent transition-colors font-medium text-left"
+                className="text-slate-700 hover:text-primary transition-colors font-medium text-left"
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-accent transition-colors font-medium text-left"
+                className="text-slate-700 hover:text-primary transition-colors font-medium text-left"
               >
                 About
               </button>

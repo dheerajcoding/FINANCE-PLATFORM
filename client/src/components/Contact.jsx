@@ -161,6 +161,7 @@ const Contact = () => {
             </div>
             {alert.show && (
               <div
+                role={alert.type === 'success' ? 'status' : 'alert'}
                 className={`mb-6 p-4 rounded-2xl ${
                   alert.type === 'success'
                     ? 'bg-green-50 border border-green-200 text-green-800'
@@ -186,8 +187,9 @@ const Contact = () => {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all"
+                    className="form-input border-slate-300"
                     placeholder="John Doe"
+                    autoComplete="name"
                     required
                   />
                 </div>
@@ -202,8 +204,9 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all"
+                    className="form-input border-slate-300"
                     placeholder="john@example.com"
+                    autoComplete="email"
                     required
                   />
                 </div>
@@ -220,10 +223,13 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all"
+                    className="form-input border-slate-300"
                     placeholder="+91 9818774800"
+                    inputMode="tel"
+                    autoComplete="tel"
                     required
                   />
+                  <p className="mt-2 text-xs text-slate-500">Tip: Enter your WhatsApp number if you prefer WhatsApp updates.</p>
                 </div>
 
                 <div>
@@ -235,7 +241,7 @@ const Contact = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all bg-white"
+                    className="form-input border-slate-300 bg-white"
                     required
                   >
                     <option value="">Select a service</option>
@@ -257,7 +263,7 @@ const Contact = () => {
                   name="preferredContactTime"
                   value={formData.preferredContactTime}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all bg-white"
+                  className="form-input border-slate-300 bg-white"
                 >
                   <option value="">Select preferred time</option>
                   <option value="morning">Morning (9 AM - 12 PM)</option>
@@ -276,7 +282,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows="5"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all resize-none"
+                  className="form-textarea border-slate-300"
                   placeholder="Tell us about your requirement..."
                   required
                 ></textarea>

@@ -1,19 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './client/index.html',
+    './client/src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#1e3a8a', // Navy blue
+          DEFAULT: '#1e3a8a',
           dark: '#1e293b',
           light: '#3b82f6',
         },
         accent: {
-          DEFAULT: '#dc2626', // Red
+          DEFAULT: '#dc2626',
           dark: '#991b1b',
           light: '#ef4444',
         },

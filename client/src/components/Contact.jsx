@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import emailjs from '@emailjs/browser';
 import contactBg from './images/image20.avif';
 import contactDesk from './images/image5.jpg';
 
@@ -110,23 +110,44 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('/api/contact', formData);
+      const serviceId = (import.meta.env.VITE_EMAILJS_SERVICE_ID || '').trim();
+      const templateId = (import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '').trim();
+      const publicKey = (import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '').trim();
 
-      if (response.data.success) {
-        showAlert('success', 'Thank you! We\'ve received your request and will contact you soon.');
-        setFormData({
-          fullName: '',
-          email: '',
-          phone: '',
-          service: '',
-          message: '',
-          preferredContactTime: '',
-        });
+      if (!serviceId || !templateId || !publicKey) {
+        showAlert('error', 'Email service is not configured. Please try again later.');
+        return;
       }
+
+      const templateParams = {
+        customer_name: formData.fullName,
+        customer_email: formData.email,
+        customer_phone: formData.phone,
+        service_requested: formData.service,
+        message: formData.message,
+        preferred_time: formData.preferredContactTime || 'Not specified',
+        received_date: new Date().toLocaleString('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          dateStyle: 'full',
+          timeStyle: 'short',
+        }),
+        from_name: 'ARS Financial Enterprises',
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, { publicKey });
+
+      showAlert('success', 'Thank you! We\'ve received your request and will contact you soon.');
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: '',
+        preferredContactTime: '',
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
-      const errorMessage = error.response?.data?.message || 'Something went wrong. Please try again later.';
-      showAlert('error', errorMessage);
+      showAlert('error', 'Something went wrong. Please try again later.');
     } finally {
       setLoading(false);
     }

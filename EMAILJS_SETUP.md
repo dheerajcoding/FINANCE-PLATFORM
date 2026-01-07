@@ -1,6 +1,6 @@
-# EmailJS Setup Guide for ARS Financial Enterprises
+# EmailJS Setup Guide for ARS Financial Enterprises (Frontend Only)
 
-This guide will help you set up EmailJS for sending inquiry notifications.
+This guide will help you set up EmailJS to send inquiry notifications directly from the website frontend (no backend server).
 
 ## Step 1: Create EmailJS Account
 
@@ -71,60 +71,34 @@ EmailJS can handle customer auto-replies on the EmailJS side (for example, via y
 
 1. Go to **Account** → **General**
 2. Copy your **Public Key** (e.g., `user_abcdefghijk`)
-3. Go to **Account** → **API Keys**
-4. Generate or copy your **Private Key** (keep this secure!)
 
-## Step 5: Update .env File
+Note: For the browser integration used by this website, you only need the **Public Key**.
 
-Copy `server/.env.example` to `server/.env` and fill in your EmailJS credentials:
+## Step 5: Configure Environment Variables (Vite)
+
+Create a `.env` file at the repository root (or set these in your hosting provider's environment variables):
 
 ```env
-# MongoDB Configuration
-MONGO_URI=mongodb://localhost:27017/ars-financial
-
-# EmailJS Configuration
-EMAILJS_SERVICE_ID=service_abc123
-EMAILJS_TEMPLATE_ID=template_xyz456
-EMAILJS_PUBLIC_KEY=user_abcdefghijk
-EMAILJS_PRIVATE_KEY=your_private_key_here
-
-# Email Configuration
-TO_EMAIL=anil.choudhary6@yahoo.co.in
-CC_EMAIL=canil8931@gmail.com
-FROM_NAME=ARS Financial Enterprises
-
-# Server Configuration
-PORT=5000
-NODE_ENV=development
+VITE_EMAILJS_SERVICE_ID=service_abc123
+VITE_EMAILJS_TEMPLATE_ID=template_xyz456
+VITE_EMAILJS_PUBLIC_KEY=user_abcdefghijk
 ```
 
-## Step 6: Install Dependencies
+## Step 6: Test the Setup
 
+1. Install dependencies:
 ```powershell
-cd server
 npm install
 ```
 
-This will install `@emailjs/nodejs` package.
-
-## Step 7: Test the Setup
-
-1. Start the server:
+2. Start the dev server:
 ```powershell
-cd server
-npm run dev
-```
-
-2. Start the frontend:
-```powershell
-cd client
 npm run dev
 ```
 
 3. Open `http://localhost:3000`
 4. Fill out the contact form and submit
-5. Check:
-   - Your inbox (anil.choudhary6@yahoo.co.in) for the inquiry notification
+5. Check your inbox for the inquiry notification
 
 ## EmailJS Features
 
@@ -179,8 +153,8 @@ Use EmailJS dashboard to send test emails:
 
 ## Security Notes
 
-- ✅ Private key is stored in `.env` (server-side only)
-- ✅ Public key can be safely exposed in frontend
+- ✅ This project uses **EmailJS Browser** (frontend-only)
+- ✅ Only the **Public Key** is used in the frontend
 - ✅ Never commit `.env` file to version control
 - ✅ Use environment variables in production
 

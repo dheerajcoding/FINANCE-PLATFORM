@@ -99,7 +99,7 @@ const About = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <div className="inline-block px-4 py-1.5 bg-accent/90 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
-                      Co-founder & CEO
+                      Co-founder
                     </div>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ const About = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <div className="inline-block px-4 py-1.5 bg-accent/90 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
-                      Founder & CEO
+                      Founder
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import footerBg from './images/image3.jpg';
 
 const Footer = () => {
@@ -23,9 +24,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">
-              ARS <span className="text-accent-light">Financial</span>
-            </h3>
+            <Link to="/" className="block">
+              <h3 className="text-2xl font-bold mb-4">
+                ARS <span className="text-accent-light">Financial</span>
+              </h3>
+            </Link>
             <p className="text-blue-200 mb-4">
               Min Fees · High Quality · Quick Service
             </p>
@@ -39,36 +42,36 @@ const Footer = () => {
             <h4 className="text-xl font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <button
-                  onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })}
+                <Link
+                  to="/"
                   className="text-blue-200 hover:text-accent-light transition-colors"
                 >
                   Home
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}
+                <Link
+                  to="/services/gst-registration-returns"
                   className="text-blue-200 hover:text-accent-light transition-colors"
                 >
                   Services
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+                <Link
+                  to="/about"
                   className="text-blue-200 hover:text-accent-light transition-colors"
                 >
                   About Us
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                <Link
+                  to="/contact"
                   className="text-blue-200 hover:text-accent-light transition-colors"
                 >
                   Contact
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

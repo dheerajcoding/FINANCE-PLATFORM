@@ -29,7 +29,7 @@ const Hero = () => {
       className="relative pt-24 md:pt-32 pb-16 md:pb-24 px-4 text-white overflow-hidden"
     >
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Financial planning background" className="w-full h-full object-cover" />
+        <img src={heroBg} alt="GST Registration Services in India by ARS Financial Enterprises" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-primary/90 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/40 to-accent/50" />
       </div>
@@ -38,15 +38,14 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <div>
             <p className="uppercase tracking-[0.4em] text-accent-light text-xs mb-6">
-              Min Fees · High Quality · Quick Service
+              Best GST Consultant • Tax Consultant in India • CA Firm
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] sm:leading-[1.06] mb-5 sm:mb-6">
-              Compliance excellence crafted by
-              <span className="text-accent-light block"> Anil Kumar Choudhary</span>
-            </h2>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] sm:leading-[1.06] mb-5 sm:mb-6">
+              Best GST, Tax & Business Compliance Services in India
+              <span className="text-accent-light block"> ARS Financial Enterprises</span>
+            </h1>
             <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-7 sm:mb-8 max-w-xl">
-              Holistic GST, tax, and corporate compliance solutions delivered with the rigor of a
-              boutique consultancy and the speed of a modern financial partner.
+              ARS Financial Enterprises provides professional GST registration, income tax filing, business compliance, and corporate advisory services across India. Led by Anil Kumar Choudhary, we help startups, SMEs, and large companies stay 100% compliant with Indian tax and legal regulations.
             </p>
 
             <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-10">
@@ -59,7 +58,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button onClick={scrollToContact} className="btn-primary text-lg px-10 py-4">
-                Request a Call Back
+                Get Expert Tax & Compliance Assistance Today
               </button>
               <button
                 onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}
@@ -84,12 +83,12 @@ const Hero = () => {
               <div className="relative">
                 <img
                   src={heroPortrait}
-                  alt="Financial advisory session"
+                  alt="Income Tax Filing Experts at ARS Financial Enterprises"
                   className="w-full h-64 sm:h-72 md:h-80 object-cover rounded-2xl shadow-2xl"
                 />
                 <img
                   src={badgeImage}
-                  alt="Client meeting"
+                  alt="Company Registration Consultants India"
                   className="absolute -bottom-8 -left-8 w-32 h-32 object-cover rounded-xl border-4 border-white shadow-xl hidden sm:block"
                 />
               </div>

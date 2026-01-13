@@ -20,10 +20,10 @@ const About = () => {
         <div className="text-center mb-16">
           <p className="section-subtitle">WHO WE ARE</p>
           <h2 className="section-heading">
-            Boutique financial partners with enterprise discipline
+            Trusted Financial & Tax Consultants for Startups, SMEs & Corporates
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            ARS Financial Enterprises blends a decade of compliance expertise with design-led client experiences built for modern founders and finance leaders.
+            ARS Financial Enterprises is a leading tax consultancy firm in India providing GST registration, income tax filing, company incorporation, and business compliance services to startups, MSMEs and corporates. We blend a decade of compliance expertise with design-led client experiences built for modern founders and finance leaders.
           </p>
         </div>
 
@@ -58,16 +58,16 @@ const About = () => {
 
           <div className="relative">
             <div className="relative rounded-[32px] overflow-hidden shadow-2xl">
-              <img src={aboutMain} alt="ARS team collaborating" className="w-full h-[520px] object-cover" />
+              <img src={aboutMain} alt="GST Registration and Tax Consultants in India - ARS Financial Team" className="w-full h-[520px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent" />
             </div>
             <div className="glass-card p-5 absolute -bottom-10 -left-10 w-48 hidden md:block">
-              <img src={aboutSecondary} alt="Client discussion" className="w-full h-36 object-cover rounded-2xl" />
+              <img src={aboutSecondary} alt="Business Compliance Services India" className="w-full h-36 object-cover rounded-2xl" />
               <p className="mt-3 text-sm font-semibold text-primary">Client Strategy Pods</p>
               <p className="text-xs text-gray-600">Weekly sprints for proactive compliance</p>
             </div>
             <div className="glass-card absolute -top-10 -right-4 w-48 hidden lg:block">
-              <img src={aboutDetail} alt="Financial analytics" className="w-full h-40 object-cover rounded-2xl" />
+              <img src={aboutDetail} alt="Startup Tax Advisory and Financial Analytics" className="w-full h-40 object-cover rounded-2xl" />
               <div className="p-4">
                 <p className="text-xs uppercase tracking-[0.4em] text-primary/60">Insights Hub</p>
                 <p className="text-sm text-gray-700">Live analytics, regulatory alerts, and curated playbooks.</p>
@@ -93,7 +93,7 @@ const About = () => {
                 <div className="relative h-[450px] overflow-hidden">
                   <img 
                     src={imagemain} 
-                    alt="Anil Choudhary - Owner & CEO" 
+                    alt="Anil Choudhary - Tax Consultant and CA Firm Owner India" 
                     className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
@@ -120,7 +120,7 @@ const About = () => {
                 <div className="relative h-[450px] overflow-hidden">
                   <img 
                     src={imagemain2} 
-                    alt="Archana Choudhary - Owner & CEO" 
+                    alt="Archana Choudhary - Business Compliance Expert India" 
                     className="w-full h-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />

@@ -156,7 +156,7 @@ const Contact = () => {
   return (
     <section id="contact" className="relative section-padding overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        <img src={contactBg} alt="Contact background" className="w-full h-full object-cover scale-105 brightness-[0.35]" />
+        <img src={contactBg} alt="GST Registration and Tax Filing Services Contact - ARS Financial Enterprises" className="w-full h-full object-cover scale-105 brightness-[0.35]" />
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-primary/80" />
         <div className="absolute inset-0 bg-grid opacity-20" />
         <div className="absolute -top-24 -right-20 w-96 h-96 bg-accent/30 blur-3xl rounded-full" />
@@ -165,9 +165,9 @@ const Contact = () => {
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
           <p className="text-sm tracking-widest uppercase text-accent/90 mb-3 font-medium">WORK WITH US</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Tell us what success looks like for you</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Get Expert Tax & Compliance Assistance Today</h2>
           <p className="text-lg text-slate-200 max-w-3xl mx-auto leading-relaxed">
-            A specialist consultant from our concierge desk will respond with a tailored compliance and growth blueprint within one business day.
+            Connect with India's trusted tax consultant and CA firm for GST registration, income tax filing, company registration, and business compliance services. A specialist consultant from our concierge desk will respond with a tailored compliance and growth blueprint within one business day.
           </p>
         </div>
 

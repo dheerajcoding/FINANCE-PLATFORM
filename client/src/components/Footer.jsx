@@ -21,7 +21,7 @@ const Footer = () => {
       }}
     >
       <div className="container-custom py-16 px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
             <Link to="/" className="block">
@@ -30,10 +30,10 @@ const Footer = () => {
               </h3>
             </Link>
             <p className="text-blue-200 mb-4">
-              Min Fees · High Quality · Quick Service
+              Best GST Consultant • Tax Consultant in India
             </p>
-            <p className="text-blue-100">
-              Your trusted partner for all financial and compliance services.
+            <p className="text-blue-100 text-sm leading-relaxed">
+              ARS Financial Enterprises is a leading tax consultancy firm in India providing GST registration, income tax filing, company incorporation, and business compliance services to startups, MSMEs and corporates.
             </p>
           </div>
 
@@ -73,6 +73,21 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Our Services - SEO Links */}
+          <div>
+            <h4 className="text-xl font-bold mb-4">Our Services</h4>
+            <ul className="space-y-2 text-sm">
+              <li className="text-blue-200">GST Registration India</li>
+              <li className="text-blue-200">GST Filing Services</li>
+              <li className="text-blue-200">Income Tax Return Filing</li>
+              <li className="text-blue-200">Company Registration India</li>
+              <li className="text-blue-200">MSME Registration</li>
+              <li className="text-blue-200">Trademark Registration India</li>
+              <li className="text-blue-200">TDS Filing Services</li>
+              <li className="text-blue-200">ROC Compliance Services</li>
             </ul>
           </div>
 
@@ -122,13 +137,26 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Location SEO Section */}
+        <div className="border-t border-white/20 pt-8 mb-8">
+          <div className="text-center">
+            <h4 className="text-lg font-semibold text-accent-light mb-3">Serving Clients Across India</h4>
+            <p className="text-blue-200 text-sm">
+              Delhi • Mumbai • Bangalore • Hyderabad • Pune • Chennai • Kolkata • Ahmedabad • Jaipur • Lucknow • and all of India
+            </p>
+            <p className="text-blue-300 text-xs mt-2">
+              Professional GST Registration, Income Tax Filing, Company Registration & Business Compliance Services
+            </p>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-white/20 pt-8 text-center">
           <p className="text-blue-200">
             © {currentYear} ARS Financial Enterprises. All rights reserved.
           </p>
           <p className="text-blue-300 text-sm mt-2">
-            Designed with care for your financial success
+            Best GST, Tax & Company Registration Services in India | CA Firm | Tax Consultant | Startup Compliance
           </p>
         </div>
       </div>

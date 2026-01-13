@@ -15,10 +15,10 @@ const Services = () => {
         <div className="text-center mb-16 space-y-4">
           <p className="section-subtitle inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold tracking-wider">SERVICES PORTFOLIO</p>
           <h2 className="section-heading animate-fadeIn">
-            Tailored delivery across every financial touchpoint
+            Our Professional Financial & Compliance Services
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Each vertical combines expert advisors, smart tooling, and rigorous checklists to keep your business compliant and future-ready.
+            Expert GST, Income Tax & Company Compliance Services for Businesses Across India. Trusted Financial & Tax Consultants for Startups, SMEs & Corporates.
           </p>
         </div>
 
@@ -100,12 +100,12 @@ const Services = () => {
         <div className="mt-20 gradient-border rounded-3xl p-8 md:p-12 bg-white shadow-2xl transform hover:shadow-3xl transition-shadow duration-500">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="max-w-2xl">
-              <p className="section-subtitle inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold tracking-wider mb-4">OUR DELIVERY PROCESS</p>
-              <h3 className="text-3xl md:text-4xl font-bold text-primary leading-tight mb-3">
-                Clear, concierge-led execution
-              </h3>
+              <p className="section-subtitle inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold tracking-wider mb-4">WHY CHOOSE US</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary leading-tight mb-3">
+                Why ARS Financial Enterprises is India's Preferred Compliance Partner
+              </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                A consistent workflow from discovery to filing to post-submission visibility—so you always know what’s happening and what’s next.
+                A consistent workflow from discovery to filing to post-submission visibility—so you always know what's happening and what's next. We deliver online GST registration, ITR filing online, tax return filing India, and financial compliance services with precision.
               </p>
             </div>
 

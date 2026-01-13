@@ -65,11 +65,11 @@ const Header = () => {
         <div className="flex items-center justify-between py-4 px-4">
           {/* Logo */}
           <Link to="/" className="block">
-            <h1 className="text-2xl md:text-3xl font-bold text-primary">
+            <span className="text-2xl md:text-3xl font-bold text-primary">
               ARS <span className="text-accent">Financial</span> Enterprises
-            </h1>
+            </span>
             <p className="text-xs uppercase tracking-[0.4em] text-primary/70 hidden sm:block">
-              Min Fees · High Quality · Quick Service
+              Best GST & Tax Consultant in India
             </p>
           </Link>
           

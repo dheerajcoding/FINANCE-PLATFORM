@@ -137,26 +137,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Location SEO Section */}
-        <div className="border-t border-white/20 pt-8 mb-8">
-          <div className="text-center">
-            <h4 className="text-lg font-semibold text-accent-light mb-3">Serving Clients Across India</h4>
-            <p className="text-blue-200 text-sm">
-              Delhi • Mumbai • Bangalore • Hyderabad • Pune • Chennai • Kolkata • Ahmedabad • Jaipur • Lucknow • and all of India
-            </p>
-            <p className="text-blue-300 text-xs mt-2">
-              Professional GST Registration, Income Tax Filing, Company Registration & Business Compliance Services
-            </p>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div className="border-t border-white/20 pt-8 text-center">
           <p className="text-blue-200">
             © {currentYear} ARS Financial Enterprises. All rights reserved.
-          </p>
-          <p className="text-blue-300 text-sm mt-2">
-            Best GST, Tax & Company Registration Services in India | CA Firm | Tax Consultant | Startup Compliance
           </p>
         </div>
       </div>

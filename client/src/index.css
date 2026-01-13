@@ -66,6 +66,23 @@
   .form-textarea {
     @apply form-input resize-none;
   }
+
+  /* Static SEO content (present in view-source) */
+  #seo-static-content {
+    @apply text-slate-800;
+  }
+
+  #seo-static-content h1 {
+    @apply text-3xl md:text-4xl font-bold text-primary leading-tight;
+  }
+
+  #seo-static-content h2 {
+    @apply text-xl md:text-2xl font-semibold text-slate-900 mt-6;
+  }
+
+  #seo-static-content p {
+    @apply text-base leading-relaxed text-slate-700 mt-3;
+  }
 }
 
 @layer utilities {

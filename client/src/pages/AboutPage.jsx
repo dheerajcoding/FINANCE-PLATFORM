@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import LeadCta from '../components/LeadCta';
+import useSeo from '../lib/useSeo';
+import { organizationLd, breadcrumbLd } from '../lib/siteMeta';
 import aboutMain from '../components/images/image12.jpg';
 import aboutSecondary from '../components/images/image14.jpg';
 import aboutDetail from '../components/images/image18.webp';
@@ -12,6 +15,20 @@ const AboutPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useSeo({
+    title: 'About ARS Financial Enterprises | GST, Tax & Compliance Firm in Delhi, India',
+    description:
+      'Founded in 2014 by Anil Kumar Choudhary and Archana Choudhary, ARS Financial Enterprises helps startups, MSMEs and corporates across India with GST, tax, accounting and compliance.',
+    path: '/about',
+    jsonLd: [
+      organizationLd(),
+      breadcrumbLd([
+        { name: 'Home', path: '/' },
+        { name: 'About', path: '/about' },
+      ]),
+    ],
+  });
 
   const pillars = [
     'Dedicated relationship manager for every client',
@@ -396,6 +413,12 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+
+      <LeadCta
+        context="about"
+        heading="Work With a Team That Treats Compliance Like Strategy"
+        subheading="Book a free consultation for GST, income tax, accounting, company setup or audit. Clear scope, timeline and fixed price before we start."
+      />
 
       <Footer />
     </div>

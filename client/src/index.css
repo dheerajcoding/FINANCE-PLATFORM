@@ -14,6 +14,47 @@
   section[id] {
     scroll-margin-top: 96px;
   }
+
+  /* Room for the mobile sticky action bar */
+  @media (max-width: 639px) {
+    body {
+      padding-bottom: 3.5rem;
+    }
+  }
+}
+
+/* Prerendered content shown before the React bundle hydrates / for no-JS crawlers */
+#prerender-fallback {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 7rem 1.25rem 3rem;
+  color: #334155;
+}
+#prerender-fallback h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 0.75rem;
+}
+#prerender-fallback h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-top: 1.5rem;
+}
+#prerender-fallback p {
+  margin-top: 0.5rem;
+  line-height: 1.7;
+}
+#prerender-fallback a {
+  color: #dc2626;
+  font-weight: 600;
+}
+#prerender-fallback ul {
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
+  list-style: disc;
 }
 
 @layer components {

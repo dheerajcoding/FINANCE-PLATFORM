@@ -4,16 +4,22 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ServiceDetail from './pages/ServiceDetail';
+import NotFoundPage from './pages/NotFoundPage';
+import ScrollToTop from './components/ScrollToTop';
+import FloatingActions from './components/FloatingActions';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/services/:serviceId" element={<ServiceDetail />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <FloatingActions />
     </Router>
   );
 }

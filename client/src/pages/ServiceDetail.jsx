@@ -3,6 +3,9 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getServiceBySlug, services } from '../data/servicesData';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import FAQ from '../components/FAQ';
+import useSeo from '../lib/useSeo';
+import { organizationLd, breadcrumbLd, faqLd, serviceLd } from '../lib/siteMeta';
 
 const ServiceDetail = () => {
   const { serviceId } = useParams();
@@ -12,6 +15,32 @@ const ServiceDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [serviceId]);
+
+  useSeo(
+    service
+      ? {
+          title: service.metaTitle || `${service.title} in India | ARS Financial Enterprises`,
+          description: service.metaDescription || service.description,
+          path: `/services/${service.id}`,
+          type: 'article',
+          jsonLd: [
+            serviceLd(service),
+            organizationLd(),
+            breadcrumbLd([
+              { name: 'Home', path: '/' },
+              { name: 'Services', path: '/services/gst-registration-returns' },
+              { name: service.title, path: `/services/${service.id}` },
+            ]),
+            ...(service.faqs?.length ? [faqLd(service.faqs)] : []),
+          ],
+        }
+      : {
+          title: 'Service Not Found | ARS Financial Enterprises',
+          description: 'The service you are looking for could not be found.',
+          path: '/services',
+          noindex: true,
+        }
+  );
 
   if (!service) {
     return (
@@ -225,6 +254,16 @@ const ServiceDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      {service.faqs?.length > 0 && (
+        <FAQ
+          faqs={service.faqs}
+          title={`${service.title} — FAQs`}
+          subtitle="Common questions about this service"
+          className="bg-slate-50"
+        />
+      )}
 
       {/* Related Services */}
       {relatedServices.length > 0 && (

@@ -3,10 +3,28 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import About from '../components/About';
+import Testimonials from '../components/Testimonials';
+import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import useSeo from '../lib/useSeo';
+import { homeFaqs } from '../data/faqs';
+import { organizationLd, websiteLd, faqLd, breadcrumbLd } from '../lib/siteMeta';
 
 const HomePage = () => {
+  useSeo({
+    title: 'GST, Income Tax & Company Registration Consultants in India | ARS Financial Enterprises',
+    description:
+      'ARS Financial Enterprises is a trusted tax & compliance firm in India. GST registration, ITR filing, company registration, accounting, MSME, trademark, IEC & ROC compliance. Free consultation — call +91 98187 74800.',
+    path: '/',
+    jsonLd: [
+      organizationLd(),
+      websiteLd(),
+      breadcrumbLd([{ name: 'Home', path: '/' }]),
+      faqLd(homeFaqs),
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
@@ -87,7 +105,9 @@ const HomePage = () => {
         </section>
 
         <Services />
+        <Testimonials />
         <About />
+        <FAQ faqs={homeFaqs} />
         <Contact />
       </main>
       <Footer />

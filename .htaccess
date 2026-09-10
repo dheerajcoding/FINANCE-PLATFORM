@@ -1,4 +1,4 @@
-# Apache / LiteSpeed configuration for React SPA deployment
+# Apache / LiteSpeed configuration for the ARS Financial Enterprises SPA
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -10,7 +10,14 @@
   RewriteCond %{HTTP_HOST} ^www\.arsfinancialenterprises\.com$ [NC]
   RewriteRule ^ https://arsfinancialenterprises.com%{REQUEST_URI} [R=301,L]
 
-  # React Router (SPA) fallback - serve index.html for any non-file/non-dir request
+  # Serve the prerendered static HTML for a clean URL when it exists
+  # (e.g. /services/esic-pf-registration -> /services/esic-pf-registration.html).
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}\.html -f
+  RewriteRule ^(.+?)/?$ /$1.html [L]
+
+  # React Router (SPA) fallback - serve index.html for any other non-file request.
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -20,7 +27,7 @@
 
 # Enable GZIP compression
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
 # Browser Caching
@@ -32,15 +39,25 @@
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType application/pdf "access plus 1 month"
   ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
 # Security Headers
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
-  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # Long cache for fingerprinted build assets
+  <FilesMatch "\.(js|css|woff2?|avif|webp|png|jpe?g|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Never cache HTML so route/SEO updates go live immediately
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
 </IfModule>

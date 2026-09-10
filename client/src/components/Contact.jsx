@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import contactBg from './images/image20.avif';
 import contactDesk from './images/image5.jpg';
+import { SITE, waLink } from '../lib/siteMeta';
+import { track } from '../lib/analytics';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,10 +13,33 @@ const Contact = () => {
     service: '',
     message: '',
     preferredContactTime: '',
+    company_website: '', // honeypot — must stay empty
   });
 
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({ show: false, type: '', message: '' });
+  const [fallback, setFallback] = useState(null);
+
+  const buildLeadText = () =>
+    [
+      'New enquiry for ARS Financial Enterprises',
+      `Name: ${formData.fullName}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      `Service: ${formData.service}`,
+      `Preferred time: ${formData.preferredContactTime || 'Not specified'}`,
+      `Message: ${formData.message}`,
+    ].join('\n');
+
+  const showFallback = () => {
+    const raw = buildLeadText();
+    setFallback({
+      wa: waLink(raw),
+      mail: `mailto:${SITE.email}?subject=${encodeURIComponent(
+        'Website enquiry - ' + (formData.service || 'General')
+      )}&body=${encodeURIComponent(raw)}`,
+    });
+  };
 
   const services = [
     'GST Registration / GST Returns',
@@ -103,11 +128,18 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Honeypot: bots fill hidden fields. Pretend success, send nothing.
+    if (formData.company_website) {
+      showAlert('success', 'Thank you! We\'ve received your request and will contact you soon.');
+      return;
+    }
+
     if (!validateForm()) {
       return;
     }
 
     setLoading(true);
+    setFallback(null);
 
     try {
       const serviceId = (import.meta.env.VITE_EMAILJS_SERVICE_ID || '').trim();
@@ -115,7 +147,12 @@ const Contact = () => {
       const publicKey = (import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '').trim();
 
       if (!serviceId || !templateId || !publicKey) {
-        showAlert('error', 'Email service is not configured. Please try again later.');
+        showAlert(
+          'error',
+          'Our online form is being updated. Please send your details on WhatsApp or email using the buttons below — we\'ll respond right away.'
+        );
+        showFallback();
+        track('lead_form_fallback', { reason: 'not_configured', service: formData.service });
         return;
       }
 
@@ -136,7 +173,12 @@ const Contact = () => {
 
       await emailjs.send(serviceId, templateId, templateParams, { publicKey });
 
-      showAlert('success', 'Thank you! We\'ve received your request and will contact you soon.');
+      track('generate_lead', {
+        service: formData.service,
+        preferred_time: formData.preferredContactTime || 'Not specified',
+        method: 'form',
+      });
+      showAlert('success', 'Thank you! We\'ve received your request and will contact you within one business day.');
       setFormData({
         fullName: '',
         email: '',
@@ -144,10 +186,16 @@ const Contact = () => {
         service: '',
         message: '',
         preferredContactTime: '',
+        company_website: '',
       });
     } catch (error) {
       console.error('Error submitting form:', error);
-      showAlert('error', 'Something went wrong. Please try again later.');
+      showAlert(
+        'error',
+        'We couldn\'t submit the form just now. Please reach us on WhatsApp or email using the buttons below — your details are ready to send.'
+      );
+      showFallback();
+      track('lead_form_fallback', { reason: 'send_error', service: formData.service });
     } finally {
       setLoading(false);
     }
@@ -195,6 +243,39 @@ const Contact = () => {
                 </div>
               </div>
             )}
+
+            {fallback && (
+              <div className="mb-6 flex flex-col sm:flex-row gap-3">
+                <a
+                  href={fallback.wa}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 text-center bg-[#25D366] text-white font-semibold py-3 px-4 rounded-xl"
+                >
+                  Send on WhatsApp
+                </a>
+                <a
+                  href={fallback.mail}
+                  className="flex-1 text-center bg-primary text-white font-semibold py-3 px-4 rounded-xl"
+                >
+                  Send by Email
+                </a>
+              </div>
+            )}
+
+            {/* Honeypot: hidden from users, catches bots */}
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="company_website">Company website</label>
+              <input
+                type="text"
+                id="company_website"
+                name="company_website"
+                value={formData.company_website}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
 
             <div className="space-y-5">
               <div className="grid md:grid-cols-2 gap-5">
